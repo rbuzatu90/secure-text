@@ -1,6 +1,7 @@
 """`main` is the top level module for your Flask application."""
 
 # Import the Flask Framework
+import my_db
 from flask import Flask
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
