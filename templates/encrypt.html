@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Encrypt Files</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <nav> <a href="/">Home</a> | <a href="/encrypt">Encrypt text</a> | <a href="/generate_keys">Generate key pair</a> | <a href="/info">Info</a> </nav>
+
+    </head>
+    <body>
+        <div id="container">
+
+            <div class="title">
+                <h1>Encrypt text using existing Key Pair</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="/encrypt"">
+                  <textarea name="text" rows="20" cols="70">
+Enter text to be encrypted here
+                  </textarea>
+                  <label for="key_id">Key ID:</label>
+                  <input type="text" name="key_id" value="MyKey" /><br />
+
+
+
+                  <input type="submit" />
+
+                </form>
+            </div>
+            <div class="title">
+                <h1>Settings</h1>
+                {{ msg }}
+            </div>
+        </div>
+    </body>
+</html>

@@ -2,7 +2,8 @@
 
 # Import the Flask Framework
 from my_db import Employee
-from flask import Flask, render_template
+from encrypt import encrypt_text, generate_key
+from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
@@ -16,6 +17,29 @@ def hello():
     # print x
     return render_template("welcome.html", user=x)
 
+@app.route('/encrypt', methods=['POST', 'GET'])
+def encrypt():
+    """Return a friendly HTTP greeting."""
+    if request.method == 'POST':
+        text = request.form['text']
+        key_id = request.form['key_id']
+        x = encrypt_text(text, key_id)
+
+        return render_template("encrypt.html", msg=x)
+
+    # encrypt_text(text, key)
+    return render_template("encrypt.html")
+
+@app.route('/generate_keys', methods=['POST', 'GET'])
+def generate_keys():
+    if request.method == 'POST':
+        key_id=request.form['key_id']
+        bits=request.form['bits']
+        x = generate_key(key_id, bits)
+        return render_template('generate_keys.html', msg=x)
+    else:
+        x = "lol"
+        return render_template("generate_keys.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
