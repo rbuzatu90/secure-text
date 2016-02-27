@@ -4,13 +4,13 @@
         <div id="container">
 
             <div class="title">
-                <h1>Encrypt text using existing Key Pair</h1>
+                <h1>Encrypt text with password</h1>
             </div>
             <div id="content">
-                <form method="post" action="/encrypt"">
+                <form method="post" action="/encrypt_with_key"">
                   <textarea name="text" rows="20" cols="70">Enter text to be encrypted here</textarea>
-                  <label for="key_id">Key ID:</label>
-                  <input type="text" name="key_id" value="MyKey" /><br />
+                  <label for="pass">Password</label>
+                  <input type="text" name="pass" value="MyPassword" /><br />
                   <input type="submit" />
                 </form>
             </div>

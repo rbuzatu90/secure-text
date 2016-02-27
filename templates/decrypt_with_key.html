@@ -4,19 +4,19 @@
         <div id="container">
 
             <div class="title">
-                <h1>Encrypt text using existing Key Pair</h1>
+                <h1>Decrypt text with password</h1>
             </div>
             <div id="content">
-                <form method="post" action="/encrypt"">
-                  <textarea name="text" rows="20" cols="70">Enter text to be encrypted here</textarea>
-                  <label for="key_id">Key ID:</label>
-                  <input type="text" name="key_id" value="MyKey" /><br />
+                <form method="post" action="/decrypt_with_key"">
+                  <textarea name="text" rows="20" cols="70">Enter cipher text to be decrypted here</textarea>
+                  <label for="pass">Password</label>
+                  <input type="text" name="pass" value="MyPassword" /><br />
                   <input type="submit" />
                 </form>
             </div>
                 <div id="container">
                 <div class="title">
-                <h1>Encrypted text</h1>
+                <h1>Decrypted text</h1>
                 </div>
                     <h3>{{ msg }}</h3>
             </div>

@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Secure file</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+        <nav> <a href="/">Home</> | <a href="/encrypt">Encrypt text</a> | <a href="/encrypt_with_key">Encrypt text with password</a> | <a href="/decrypt_with_key">Decrypt text using password</a> | | <a href="/generate_keys">Generate key pair</a> | <a href="/load_key">Load Key</a> | <a href="/info">Info</a> </nav>
+
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

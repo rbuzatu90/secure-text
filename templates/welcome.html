@@ -1,24 +1,48 @@
-<html>
-    <head>
-        <title>Encrypt Files</title>
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-        <nav> <a href="/">Home</a> | <a href="/encrypt">Encrypt text</a> | <a href="/generate_keys">Generate key pair</a> | <a href="/info">Info</a> </nav>
+{% extends "base.html" %}
+{% block content %}
 
-    </head>
-    <body>
         <div id="container">
             <div class="title">
-                <h1>Use existing key pair</h1>
+                <h1>Encrypt using existing key pair</h1>
             </div>
-
             <div id="content">
                 <form method="post" action="{{ url_for('encrypt') }}">
+                  <label for="text">Text to encrypt</label>
+                  <textarea name="text" rows="5" cols="70">Enter text to be encrypted here</textarea>
                   <label for="key_id">Key ID</label>
                   <input type="text" name="key_id" value="MyKey" /><br />
+                  <input type="submit" />
+                </form>
+            </div>
+        </div>
+
+
+        <div id="container">
+            <div class="title">
+                <h1>Encrypt using password</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('encrypt_with_key') }}">
                   <label for="text">Text to encrypt</label>
-                  <textarea name="text" rows="20" cols="70">
-Enter text to be encrypted here
-                  </textarea>
+                  <textarea name="text" rows="5" cols="70">Enter text to be encrypted here</textarea>
+                  <label for="pass">Password</label>
+                  <input type="text" name="pass" value="Password" /><br />
+                  <input type="submit" />
+                </form>
+            </div>
+        </div>
+
+        <div id="container">
+            <div class="title">
+                <h1>Decrypt using password</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('decrypt_with_key') }}">
+                  <label for="text">Text to decrypt</label>
+                  <textarea name="text" rows="5" cols="70">Enter text to be decrypted here</textarea>
+                  <label for="pass">Password</label>
+                  <input type="text" name="pass" value="Password" /><br />
+                  <input type="submit" />
                 </form>
             </div>
         </div>
@@ -27,18 +51,30 @@ Enter text to be encrypted here
             <div class="title">
                 <h1>Generate Key Pair</h1>
             </div>
-
             <div id="content">
                 <form method="post" action="{{ url_for('generate_keys') }}">
-                  <label for="key_id">Enter a desired Key ID</label>
+                  <label for="key_id">Enter a desired key ID</label>
                   <input type="text" name="key_id" value="MyKey" /><br />
                   <label for="bits">Number of bits for your key</label>
                   <input type="text" name="bits" value="2048" /><br />
                   <input type="submit" />
                 </form>
-
             </div>
-
         </div>
-    </body>
-</html>
+
+        <div id="container">
+            <div class="title">
+                <h1>Load Key Pair</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('load_key') }}">
+                  <label for="text">Public Key</label>
+                  <textarea name="text" rows="5" cols="70">Enter your public ey part here</textarea>
+                  <label for="key_id">Enter a desired Key ID</label>
+                  <input type="text" name="key_id" value="MyKey" /><br />
+                  <input type="submit" />
+                </form>
+            </div>
+        </div>
+
+{% endblock %}

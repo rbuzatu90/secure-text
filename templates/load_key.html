@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div id="container">
+
+        <div class="title">
+           <h1>Load your existing Key</h1>
+        </div>
+        <div id="content">
+            <form method="post" action="/load_key"">
+              <textarea name="text" rows="20" cols="70">Enter your public key here</textarea>
+              <label for="key_id">Key ID:</label>
+              <input type="text" name="key_id" value="MyKey" /><br />
+              <input type="submit" />
+            </form>
+        </div>
+        <h3>{{ msg }}</h3>
+    </div>
+
+{% endblock %}

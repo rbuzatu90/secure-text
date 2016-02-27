@@ -1,11 +1,6 @@
-<html>
-    <head>
-        <title>Encrypt Files</title>
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-        <nav> <a href="/">Home</a> | <a href="/encrypt">Encrypt text</a> | <a href="/generate_keys">Generate key pair</a> | <a href="/info">Info</a> </nav>
+{% extends "base.html" %}
+{% block content %}
 
-    </head>
-    <body>
         <div id="container">
 
             <div class="title">
@@ -18,9 +13,7 @@
                   <input type="text" name="key_id" value="MyKey" /><br />
                   <label for="bits">Bit count:</label>
                   <input type="text" name="bits" value="2048" /><br />
-
-
-                  <input type="submit" />
+                 <input type="submit" />
 
                 </form>
             </div>
@@ -29,5 +22,5 @@
                 {{ msg }}
             </div>
         </div>
-    </body>
-</html>
+
+{% endblock %}
